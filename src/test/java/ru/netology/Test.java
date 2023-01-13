@@ -1,10 +1,13 @@
 package ru.netology;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+
+
 public class Test {
 
     @Test
-    void returnBody() {
+     public void shouldTestPostmanEcho() {
         // Given - When - Then
 // Предусловия
         given()
@@ -16,7 +19,7 @@ public class Test {
 // Проверки
                 .then()
                 .statusCode(200)
-                .body("name")
+                .body("data", equalTo("some data"))
         ;
     }
 }
